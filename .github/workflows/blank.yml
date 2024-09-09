@@ -11,15 +11,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  testJob:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v3
-    - run: |
-        exit 0
   build:
     name: Checkout and notify
-    needs: [ TestJob ]
     if: ${{always()}}
     runs-on: ubuntu-latest
     steps:
