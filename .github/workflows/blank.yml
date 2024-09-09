@@ -10,14 +10,32 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  testJob:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v3
+    - run: |
+        exit 0
   build:
-     runs-on: ubuntu-latest
-     steps:
-      - name: Send a Notification
-        id: notify
-        uses: thechetantalwar/teams-notify@v2
+    name: Checkout and notify
+    needs: [ TestJob ]
+    if: ${{always()}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+      - uses: freezer00/teams-webhook-action@v1.4.1
         with:
-          teams_webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-          message: "Github Action Build Number ${{ github.run_number }} Completed for ${{ github.repository }} and the outcome is  ${{ needs.build.result }}."
+          webhook_url: ${{secrets.MSTEAMS_WEBHOOK}}
+          needs: ${{ toJson(needs) }}
+          job: ${{ toJson(job) }}
+          title: Custom title
+          additional_button_title: |-
+            Link to Google
+            Link to Microsoft
+          additional_button_url: |-
+            https://google.com
+            https://www.microsoft.com/de-de/microsoft-teams
+          hide_facts: false
+          dry_run: false
