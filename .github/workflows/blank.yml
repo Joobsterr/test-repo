@@ -17,25 +17,13 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           exit 0
-  build:
-    name: Checkout and notify
-    needs: [ testJob ]
-    if: ${{always()}}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v1
-      - uses: freezer00/teams-webhook-action@v1.4.1
+      - uses: actions/checkout@master
+      - name: Microsoft Teams Notification
+        uses: skitionek/notify-microsoft-teams@master
+        if: failure()
         with:
-          webhook_url: ${{secrets.MSTEAMS_WEBHOOK}}
+          webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
           needs: ${{ toJson(needs) }}
           job: ${{ toJson(job) }}
-          title: Custom title
-          additional_button_title: |-
-            Link to Google
-            Link to Microsoft
-          additional_button_url: |-
-            https://google.com
-            https://www.microsoft.com/de-de/microsoft-teams
-          hide_facts: false
-          dry_run: false
+          steps: ${{ toJson(steps) }}
+          dry_run: False
