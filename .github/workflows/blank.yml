@@ -13,6 +13,7 @@ on:
 jobs:
   testJob:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@master
       - name: Microsoft Teams Notification
