@@ -17,9 +17,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@master
-      - name: Microsoft Teams Notification
-        uses: skitionek/notify-microsoft-teams@master
-        if: always()
+      - name: 📣 Send teams notification
+        uses: simbo/msteams-message-card-action@latest
         with:
-          webhook_url: "https://prod-97.westeurope.logic.azure.com:443/workflows/7e08e8ca983743f9a6d01bbf20d4246a/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TBzTWGI2mGFtpxsuHSipvM626-yZTl4PumE6KOoSBsY"
+          message: Hello world!
+          webhook: "https://prod-97.westeurope.logic.azure.com:443/workflows/7e08e8ca983743f9a6d01bbf20d4246a/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TBzTWGI2mGFtpxsuHSipvM626-yZTl4PumE6KOoSBsY"
