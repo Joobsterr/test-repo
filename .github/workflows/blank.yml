@@ -21,5 +21,9 @@ jobs:
       - name: Microsoft Teams Notification
         uses: skitionek/notify-microsoft-teams@master
         if: always()
-        with: 
+        with:
           webhook_url: "https://prod-103.westeurope.logic.azure.com:443/workflows/9be4fae7f1b943229781afe093936e03/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=pxF4o2hx6j2r4FkmdHs0jYIIL1u7G_LukdQQmcs54as"
+          needs: ${{ toJson(needs) }}
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
+          dry_run: False
