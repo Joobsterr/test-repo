@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       # this is the new step
-    - uses: toko-bifrost/ms-teams-deploy-card@master #  or "./" if in a local set-up
-      if: always()
+    - uses: thechetantalwar/teams-notify@v2
       with:
-        webhook-uri: "https://prod-97.westeurope.logic.azure.com:443/workflows/7e08e8ca983743f9a6d01bbf20d4246a/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TBzTWGI2mGFtpxsuHSipvM626-yZTl4PumE6KOoSBsY"
+        message: "Hi"
+        teams_webhook_url: "https://prod-97.westeurope.logic.azure.com:443/workflows/7e08e8ca983743f9a6d01bbf20d4246a/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TBzTWGI2mGFtpxsuHSipvM626-yZTl4PumE6KOoSBsY"
