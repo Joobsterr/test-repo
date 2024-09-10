@@ -20,5 +20,9 @@ jobs:
         with:
           python-version: '3.12.6'  # Use the appropriate Python version
 
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
       - name: Run Python script
         run: python PipelineStatus.py --webhook_url ${{ secrets.MSTEAMS_WEBHOOK }} --pat_token ${{ secrets.PAT_TOKEN }} 
