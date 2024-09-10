@@ -22,7 +22,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install pyyaml
+          pip install requests
+          pip install github
+          pip install tabulate
 
       - name: Run Python script
         run: python PipelineStatus.py --webhook_url ${{ secrets.MSTEAMS_WEBHOOK }} --pat_token ${{ secrets.PAT_TOKEN }} 
