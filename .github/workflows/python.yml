@@ -28,4 +28,7 @@ jobs:
           pip install tabulate
 
       - name: Run Python script
-        run: python PipelineStatus.py --webhook_url ${{ secrets.MSTEAMS_WEBHOOK }} --pat_token ${{ secrets.PAT_TOKEN }} 
+        env:
+          WEBHOOK: ${{ secrets.MSTEAMS_WEBHOOK }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: python PipelineStatus.py --webhook_url "$WEBHOOK" --pat_token "$PAT_TOKEN"
