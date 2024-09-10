@@ -23,7 +23,7 @@ def load_repos_from_yaml(file_path):
     return data.get('repos_list', [])
 
 # Using an access token
-auth = Auth.Token({args.pat_token})
+auth = Auth.Token(args.pat_token)
 g = Github(auth=auth)
 
 repos_list = load_repos_from_yaml('Repo_List.yaml')
@@ -168,7 +168,7 @@ def create_card_payload(start_index, end_index):
 
     return card_payload
 
-def send_payload_in_chunks():
+def send_payload_in_chunks(webhook_url):
     max_size = 27 * 1024  # 27KB
     start_index = 0
     while start_index < len(rows):
@@ -178,7 +178,7 @@ def send_payload_in_chunks():
         end_index = min(end_index, len(rows))
         
         json_payload = json.dumps(create_card_payload(start_index, end_index))
-        response = requests.post({args.webhook_url}, data=json_payload, headers={"Content-Type": "application/json"})
+        response = requests.post(webhook_url, data=json_payload, headers={"Content-Type": "application/json"})
         print(json_payload)
         
         if response.status_code == 200:
@@ -189,7 +189,7 @@ def send_payload_in_chunks():
         start_index = end_index
 
 # Send payload in chunks
-send_payload_in_chunks()
+send_payload_in_chunks(args.webhook_url)
 
 # Close connection after use
 g.close()
