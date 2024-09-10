@@ -5,13 +5,16 @@ name: CI
 # Controls when the workflow will run
 on:
   push:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
+    paths-ignore:
+      - 'README.md'
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
   workflow_dispatch:
 
 jobs:
-  testJob:
+  NotifyTeams:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -20,7 +23,7 @@ jobs:
         uses: skitionek/notify-microsoft-teams@master
         if: always()
         with:
-          webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
+          webhook_url: "https://capgemini.webhook.office.com/webhookb2/3f6bd7ab-2b20-4718-9447-65ac38d3c76c@76a2ae5a-9f00-4f6b-95ed-5d33d77c4d61/IncomingWebhook/953e697e7d38418686de7cce9836071d/409da6fc-5603-4c85-9211-6d21d3ee0686"
           needs: ${{ toJson(needs) }}
           job: ${{ toJson(job) }}
           steps: ${{ toJson(steps) }}
