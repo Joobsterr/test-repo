@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: '3.12.6'  # Use the appropriate Python version
 
+      - name: Install build dependencies
+        run: sudo apt-get install -y build-essential
+
       - name: Install dependencies
         run: |
           pip install pyyaml
