@@ -13,10 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - run: ls
+
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: '3.12.6'  # Use the appropriate Python version
 
       - name: Run Python script
-        run: python ../../pipeline.py --webhook_url ${{ secrets.MSTEAMS_WEBHOOK }} --pat_token ${{ secrets.PAT_TOKEN }} 
+        run: python PipelineStatus.py --webhook_url ${{ secrets.MSTEAMS_WEBHOOK }} --pat_token ${{ secrets.PAT_TOKEN }} 
