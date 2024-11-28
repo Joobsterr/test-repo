@@ -2,7 +2,10 @@ repos_list:
   - terraform-azure-platform-rbac
   - terraform-azurerm-feature-aadds
   - terraform-azurerm-feature-acr
+  - terraform-azurerm-feature-alz-standard-policies
   - terraform-azurerm-feature-app-registrations
+  - terraform-azurerm-feature-app-service
+  - terraform-azurerm-feature-az-load-balancer
   - terraform-azurerm-feature-azure-application-gateway
   - terraform-azurerm-feature-azure-bastion
   - terraform-azurerm-feature-azure-ddos-protection-plan
@@ -10,6 +13,11 @@ repos_list:
   - terraform-azurerm-feature-azure-devops-projects
   - terraform-azurerm-feature-azuredevops-workload-identity
   - terraform-azurerm-feature-azure-firewall
+  - terraform-azurerm-feature-azure-fileshare-storage-account
+  - terraform-azurerm-feature-azure-linux-vm
+  - terraform-azurerm-feature-azure-sql-server
+  - terraform-azurerm-feature-azure-storage-account
+  - terraform-azurerm-feature-azure-windows-vm
   - terraform-azurerm-feature-bio-compliancy
   - terraform-azurerm-feature-caf-naming-conventions
   - terraform-azurerm-feature-central-backup
@@ -27,6 +35,7 @@ repos_list:
   - terraform-azurerm-feature-foundation-management
   - terraform-azurerm-feature-foundation-service-principal
   - terraform-azurerm-feature-hub-vnet
+  - terraform-azurerm-feature-key-vault
   - terraform-azurerm-feature-landingzone
   - terraform-azurerm-feature-landingzone-azuredevops
   - terraform-azurerm-feature-landingzone-azuredevops-terraform
@@ -34,9 +43,12 @@ repos_list:
   - terraform-azurerm-feature-landingzone-update
   - terraform-azurerm-feature-logicmonitor
   - terraform-azurerm-feature-mandatory-tags
+  - terraform-azurerm-feature-managed-devops-pools
+  - terraform-azurerm-feature-mysql-flexible-server
   - terraform-azurerm-feature-naming-module
-  - terraform-azurerm-feature-policy_rbac_assignment
   - terraform-azurerm-feature-policy-initiative-assignments
+  - terraform-azurerm-feature-policy_rbac_assignment
+  - terraform-azurerm-feature-postgresql-server
   - terraform-azurerm-feature-private-runners
   - terraform-azurerm-feature-rapid7
   - terraform-azurerm-feature-rbac_pim
@@ -53,15 +65,4 @@ repos_list:
   - terraform-azurerm-feature-spoke_vnet
   - terraform-azurerm-feature-supplemental-group
   - terraform-azurerm-feature-waivers
-  - terraform-azurerm-feature-app-service
-  - terraform-azurerm-feature-azure-fileshare-storage-account
-  - terraform-azurerm-feature-azure-linux-vm
-  - terraform-azurerm-feature-azure-sql-server
-  - terraform-azurerm-feature-azure-storage-account
-  - terraform-azurerm-feature-azure-windows-vm
-  - terraform-azurerm-feature-central-backup
-  - terraform-azurerm-feature-email-communication-services
-  - terraform-azurerm-feature-key-vault
-  - terraform-azurerm-feature-mysql-flexible-server
-  - terraform-azurerm-feature-postgresql-server
   - terraform-azurerm-wps-kubernetes
